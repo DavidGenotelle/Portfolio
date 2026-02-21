@@ -7,5 +7,5 @@ The portfolio presents my background, education, professional experience, and se
 It is inspired from Léon LEROY's template.
 
 ## 🌐 Live Website
-👉 [View the portfolio](https://davidgenotelle.github.io/Portefolio/)
+👉 [View the portfolio](https://davidgenotelle.github.io/Portfolio/)
 
