@@ -1,135 +1,91 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Automated Low-Tech Warehouse – David Genotelle</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- (Optionnel) Font Inter pour un rendu + premium -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="css/style.css">
-</head>
-
-<body class="project-page">
-
-<!-- ===== NAVBAR ===== -->
-<header class="navbar project-navbar">
-  <a href="index.html" class="nav-btn back-btn">
-    <i class="fa-solid fa-arrow-left"></i>
-    <span>Back</span>
-  </a>
-</header>
-
-<!-- ===== PROJECT HERO ===== -->
-<section class="project-hero project-hero--toep">
+<section class="project-hero project-hero--greenhouse">
   <div class="project-hero-card">
 
     <div class="project-tags">
-      <span class="project-chip">Biomedical Robotics</span>
-      <span class="project-chip featured">RESEARCH</span>
+      <span class="project-chip">Mechatronics</span>
+      <span class="project-chip featured">PROJECT LEADER</span>
     </div>
 
-    <h1 class="project-title">Robotization of a Trans-Oesophageal Echocardiography Probe</h1>
+    <h1 class="project-title">Automated Low-Tech Greenhouse System</h1>
 
     <p class="project-intro">
-  Research project focused on the development of a robotic assistance system
-  for remote manipulation of a trans-oesophageal echocardiography (TOE) probe.
-  The work addresses safety, ergonomics, and precision challenges in
-  interventional cardiology, while respecting clinical and industrial
-  confidentiality constraints.
-</p>
+      Design and development of an intelligent ventilation system for greenhouses. 
+      The project aims to optimize plant growth conditions through automated climate control, 
+      using a "low-tech" approach focused on efficiency, durability, and cost-effectiveness.
+    </p>
+
+    <div class="project-main-visual" style="margin: 20px 0; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+      <img 
+        src="assets/images/serre_auto_lowtech.jpg" 
+        alt="Automated Greenhouse Project Presentation" 
+        style="width: 100%; height: auto; display: block;"
+      >
+    </div>
 
     <div class="project-stats">
       <div class="stat">
-        <span class="stat-value">Medical Robotics</span>
-        <span class="stat-label">Application Field</span>
+        <span class="stat-value">Arduino / C++</span>
+        <span class="stat-label">Core Technology</span>
       </div>
       <div class="stat">
-        <span class="stat-value">Remote Control</span>
-        <span class="stat-label">System Approach</span>
+        <span class="stat-value">Embedded Systems</span>
+        <span class="stat-label">System Architecture</span>
       </div>
       <div class="stat">
-        <span class="stat-value">Image-Guided</span>
-        <span class="stat-label">Navigation</span>
+        <span class="stat-value">Mechatronics</span>
+        <span class="stat-label">Project Domain</span>
       </div>
     </div>
-
-<div class="project-hero-image-wrapper" style="display:flex; align-items:center; gap:32px;">
-  <img
-    src="assets/images/ihu_logo.jpg"
-    alt="IHU Logo"
-    class="project-hero-logo"
-  >
-  <img
-    src="assets/images/logo_icube.png"
-    alt="Partner Logo"
-    class="project-hero-logo"
-    style="height:140px; width:auto;"
-  >
-</div>
-
-
-
-
   </div>
 </section>
 
-<!-- ===== PROJECT DETAILS ===== -->
 <section class="project-content">
 
   <div class="project-grid">
 
-   <div class="content-card">
-  <h2>Project Context</h2>
-  <p>
-    Trans-oesophageal echocardiography (TOE) is a key imaging modality
-    for guiding minimally invasive structural heart interventions.
-    Its use in interventional settings requires continuous and precise
-    probe manipulation under fluoroscopic guidance.
-  </p>
-  <p>
-    This project was conducted in a clinical and research environment
-    and involved close interaction with medical professionals.
-    Due to confidentiality considerations, only high-level aspects
-    of the project are presented here.
-  </p>
-</div>
-
+    <div class="content-card">
+      <h2>Project Context</h2>
+      <p>
+        In modern agriculture, maintaining an optimal climate is crucial for crop yields. 
+        As the <strong>Project Leader</strong>, I coordinated the development of a robust solution 
+        that automates temperature and humidity regulation.
+      </p>
+      <p>
+        We focused on a "Low-Tech" philosophy: utilizing <strong>stepper motors</strong> and a 
+        custom-built mechanical folding window system to reduce energy consumption while 
+        maintaining high reliability.
+      </p>
+    </div>
 
     <div class="content-card highlights">
-      <h2>Project Objectives</h2>
+      <h2>Technical Contributions</h2>
       <ul class="highlight-list">
-  <li>Explore robotic assistance for <strong>remote TOE probe manipulation</strong></li>
-  <li>Address clinician exposure to <strong>X-ray radiation</strong></li>
-  <li>Improve ergonomics and patient safety during long procedures</li>
-  <li>Investigate <strong>repeatable and stable</strong> probe positioning</li>
-  <li>Consider integration with <strong>image-based guidance</strong></li>
-</ul>
-
+        <li><strong>C++ Programming:</strong> Development of a modular firmware using a non-blocking architecture.</li>
+        <li><strong>Automate's Architecture:</strong> Implementation of a Finite State Machine (FSM) to handle safety transitions.</li>
+        <li><strong>Electronic Design:</strong> Integration of DHT22 sensors, LCD interfaces, and A4988 motor drivers.</li>
+        <li><strong>Hardware Debugging:</strong> Signal analysis to ensure stable communication between sensors and the MCU.</li>
+      </ul>
     </div>
 
   </div>
 
   <div class="content-card wide">
-    <h2>Technical Approach</h2>
+    <h2>Deep Dive: Software Logic</h2>
     <p>
-      The project focuses on the mechanical and mechatronic design
-      of a robotic interface capable of manipulating the TOE probe
-      with high precision while preserving clinical usability.
+      The core of the system relies on a <strong>C++ State Machine</strong>. This ensures that the greenhouse 
+      doesn't oscillate between states (opening/closing) when the temperature is at the threshold. 
+      I implemented a <strong>hysteresis logic</strong> and timed delays to preserve the mechanical 
+      integrity of the motors.
     </p>
-    <p>
-      The robotic system is combined with image-based feedback,
-      enabling intuitive and accurate control during interventional procedures.
-      Emphasis is placed on safety, ergonomics and seamless integration
-      into the clinical workflow.
-    </p>
+    
+    
+
+    <div style="margin-top: 30px; display: flex; gap: 15px;">
+        <a href="https://github.com/RoyMatta/temp_serre_auto" target="_blank" class="nav-btn">
+            <i class="fa-brands fa-github"></i>
+            <span>View GitHub Repository</span>
+        </a>
+    </div>
   </div>
 
 </section>
-
-<script src="js/scroll.js"></script>
-</body>
-</html>
