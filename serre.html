@@ -1,3 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Automated Low-Tech Greenhouse – David Genotelle</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="project-page">
+
+<header class="navbar project-navbar">
+  <a href="index.html" class="nav-btn back-btn">
+    <i class="fa-solid fa-arrow-left"></i>
+    <span>Back</span>
+  </a>
+</header>
+
 <section class="project-hero project-hero--greenhouse">
   <div class="project-hero-card">
 
@@ -9,33 +32,35 @@
     <h1 class="project-title">Automated Low-Tech Greenhouse System</h1>
 
     <p class="project-intro">
-      Design and development of an intelligent ventilation system for greenhouses. 
-      The project aims to optimize plant growth conditions through automated climate control, 
-      using a "low-tech" approach focused on efficiency, durability, and cost-effectiveness.
+      Design and development of an intelligent ventilation system as part of a mechatronics project. 
+      The system utilizes automated folding windows to regulate temperature and humidity, 
+      enhancing plant growth conditions through precise environmental control.
     </p>
-
-    <div class="project-main-visual" style="margin: 20px 0; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
-      <img 
-        src="assets/images/serre_auto_lowtech.jpg" 
-        alt="Automated Greenhouse Project Presentation" 
-        style="width: 100%; height: auto; display: block;"
-      >
-    </div>
 
     <div class="project-stats">
       <div class="stat">
-        <span class="stat-value">Arduino / C++</span>
-        <span class="stat-label">Core Technology</span>
+        <span class="stat-value">C++ / Arduino</span>
+        <span class="stat-label">Tech Stack</span>
       </div>
       <div class="stat">
-        <span class="stat-value">Embedded Systems</span>
-        <span class="stat-label">System Architecture</span>
+        <span class="stat-value">FSM Logic</span>
+        <span class="stat-label">Architecture</span>
       </div>
       <div class="stat">
-        <span class="stat-value">Mechatronics</span>
-        <span class="stat-label">Project Domain</span>
+        <span class="stat-value">Automated</span>
+        <span class="stat-label">Ventilation</span>
       </div>
     </div>
+
+    <div class="project-hero-image-wrapper">
+      <img
+        src="assets/images/serre_auto_lowtech.jpg"
+        alt="Automated Greenhouse Project Visualization"
+        class="project-main-img"
+        style="width: 100%; border-radius: 12px; margin-top: 20px;"
+      >
+    </div>
+
   </div>
 </section>
 
@@ -46,46 +71,53 @@
     <div class="content-card">
       <h2>Project Context</h2>
       <p>
-        In modern agriculture, maintaining an optimal climate is crucial for crop yields. 
-        As the <strong>Project Leader</strong>, I coordinated the development of a robust solution 
-        that automates temperature and humidity regulation.
+        Maintaining an optimal climate is vital for greenhouse productivity. This project focuses on a 
+        "Low-Tech" yet highly efficient approach to automate climate regulation.
       </p>
       <p>
-        We focused on a "Low-Tech" philosophy: utilizing <strong>stepper motors</strong> and a 
-        custom-built mechanical folding window system to reduce energy consumption while 
-        maintaining high reliability.
+        As the <strong>Project Leader</strong>, I was responsible for the global coordination of the 
+        team and the technical integration between the mechanical components and the embedded system. 
+        I worked extensively on the electronics design, ensuring robust signal processing from the sensors.
       </p>
     </div>
 
     <div class="content-card highlights">
-      <h2>Technical Contributions</h2>
+      <h2>Project Objectives</h2>
       <ul class="highlight-list">
-        <li><strong>C++ Programming:</strong> Development of a modular firmware using a non-blocking architecture.</li>
-        <li><strong>Automate's Architecture:</strong> Implementation of a Finite State Machine (FSM) to handle safety transitions.</li>
-        <li><strong>Electronic Design:</strong> Integration of DHT22 sensors, LCD interfaces, and A4988 motor drivers.</li>
-        <li><strong>Hardware Debugging:</strong> Signal analysis to ensure stable communication between sensors and the MCU.</li>
+        <li>Design a reliable <strong>automated ventilation mechanism</strong></li>
+        <li>Implement <strong>real-time monitoring</strong> of temperature and humidity</li>
+        <li>Develop a modular <strong>C++ codebase</strong> for easy maintenance</li>
+        <li>Ensure system durability using a <strong>Finite State Machine</strong></li>
+        <li>Optimize stepper motor control for window folding</li>
       </ul>
     </div>
 
   </div>
 
   <div class="content-card wide">
-    <h2>Deep Dive: Software Logic</h2>
+    <h2>Technical Approach & Automate's Architecture</h2>
     <p>
-      The core of the system relies on a <strong>C++ State Machine</strong>. This ensures that the greenhouse 
-      doesn't oscillate between states (opening/closing) when the temperature is at the threshold. 
-      I implemented a <strong>hysteresis logic</strong> and timed delays to preserve the mechanical 
-      integrity of the motors.
+      The system's intelligence is built on a custom <strong>C++ Automate (Finite State Machine)</strong>. 
+      This architecture allows for stable transitions between states (Idle, Opening, Closing, Alert), 
+      incorporating hysteresis logic to avoid mechanical wear caused by rapid oscillations.
     </p>
     
-    
+    <p>
+      The electronic design features high-precision DHT sensors and A4988 drivers to control the 
+      stepper motors. Every aspect of the firmware was optimized for reliability, featuring 
+      manual override capabilities and an LCD interface for local monitoring.
+    </p>
 
-    <div style="margin-top: 30px; display: flex; gap: 15px;">
-        <a href="https://github.com/RoyMatta/temp_serre_auto" target="_blank" class="nav-btn">
-            <i class="fa-brands fa-github"></i>
-            <span>View GitHub Repository</span>
-        </a>
+    <div style="margin-top: 2rem;">
+      <a href="https://github.com/RoyMatta/temp_serre_auto" target="_blank" class="nav-btn">
+        <i class="fa-brands fa-github"></i>
+        <span>View on GitHub</span>
+      </a>
     </div>
   </div>
 
 </section>
+
+<script src="js/scroll.js"></script>
+</body>
+</html>
