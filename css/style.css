@@ -62,20 +62,20 @@
   color: var(--accent-blue);
 }
 
-/* Special styling for the CV button */
+/* CV Button styled like 'hero-btn secondary' */
 .nav-btn.cv-btn {
-  background: var(--accent-blue); /* if not good -> color: var(--accent-blue); */ 
-  color: white;
-  padding: 8px 16px; /* Slightly tighter padding to look like a pill */
-  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+  background: rgba(37, 99, 235, 0.08);
+  color: var(--accent-blue);
+  font-weight: 600;
+  transition: transform 0.3s ease, background 0.25s ease;
 }
 
 .nav-btn.cv-btn:hover {
-  background: var(--accent-indigo);
-  color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(99, 102, 241, 0.3);
+  transform: translateY(-3px);
+  background: rgba(37, 99, 235, 0.15); /* Slightly darker on hover for effect */
+  color: var(--accent-blue);
 }
+
 /* HERO */
 .hero {
   min-height: 80vh;
