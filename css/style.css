@@ -62,7 +62,20 @@
   color: var(--accent-blue);
 }
 
+/* Special styling for the CV button */
+.nav-btn.cv-btn {
+  background: var(--accent-blue); /* if not good -> color: var(--accent-blue); */ 
+  color: white;
+  padding: 8px 16px; /* Slightly tighter padding to look like a pill */
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+}
 
+.nav-btn.cv-btn:hover {
+  background: var(--accent-indigo);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(99, 102, 241, 0.3);
+}
 /* HERO */
 .hero {
   min-height: 80vh;
