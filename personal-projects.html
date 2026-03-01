@@ -429,7 +429,8 @@
       if (images.length <= 1) return; // Skips if there's only 1 photo
       
       let currentIndex = 0;
-      images``.classList.add('active'); // Show the first photo immediately
+      images[currentIndex].classList.add('active'); // Show the first photo immediately
+      
 
       // Change photo every 3 seconds (3000 milliseconds)
       setInterval(() => {
