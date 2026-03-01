@@ -133,9 +133,24 @@
     gap: 15px;
   }
 
-  .nav-btn {
-    margin: 5px;
+  /* --- NEW CODE STARTS HERE --- */
+  .navbar nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 5px;
   }
+
+  .navbar .nav-btn {
+    margin: 0 4px;
+    padding: 8px 10px;
+    font-size: 0.85rem;
+    white-space: nowrap; 
+  }
+  /* --- NEW CODE ENDS HERE --- */
 
   .card {
     padding: 30px;
