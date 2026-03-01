@@ -1,135 +1,420 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>AURIGA: Robotic Scrub Nurse – David Genotelle</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Projects — David Genotelle</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@600;700;800&family=Cabinet+Grotesk:wght@700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-  <!-- (Optionnel) Font Inter pour un rendu + premium -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-main: #f8fafc;
+      --glass: rgba(255,255,255,0.65);
+      --accent-blue: #2563eb;
+      --accent-indigo: #6366f1;
+      --accent-teal: #14b8a6;
+      --text: #0f172a;
+      --text-soft: rgba(15,23,42,0.65);
+    }
 
-  <link rel="stylesheet" href="css/style.css">
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg-main);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 60px; position: sticky; top: 0; z-index: 10;
+      background: rgba(255,255,255,0.75); backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(15,23,42,0.08);
+    }
+
+    .logo-box {
+      width: 42px; height: 42px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 1rem; color: white;
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-indigo));
+      box-shadow: 0 8px 20px rgba(37,99,235,0.35);
+    }
+
+    .brand { display: flex; align-items: center; gap: 14px; }
+    .logo-text { font-weight: 600; font-size: 1.2rem; }
+
+    .back-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 10px 20px; border-radius: 999px;
+      border: 1px solid rgba(15,23,42,0.10);
+      background: rgba(255,255,255,0.55);
+      text-decoration: none; color: var(--text); font-weight: 500;
+      transition: transform 0.25s, background 0.25s, border-color 0.25s;
+    }
+    
+    .back-btn:hover {
+      transform: translateY(-2px);
+      background: rgba(37,99,235,0.08);
+      border-color: rgba(37,99,235,0.25);
+    }
+
+    /* ── HERO ── */
+    .page-hero {
+      padding: 90px 20px 60px;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(37,99,235,0.10) 0%, transparent 50%),
+        radial-gradient(circle at 90% 100%, rgba(20,184,166,0.10) 0%, transparent 50%),
+        linear-gradient(135deg, #f8fafc 0%, #eef2f7 50%, #e0e7ff 100%);
+      text-align: center;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 16px; border-radius: 999px;
+      background: rgba(37,99,235,0.08); border: 1px solid rgba(37,99,235,0.20);
+      color: var(--accent-blue); font-size: 0.82rem; font-weight: 600; 
+      letter-spacing: 1px; text-transform: uppercase; margin-bottom: 24px;
+    }
+
+    .page-hero h1 {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(2.4rem, 5.5vw, 4rem); font-weight: 700;
+      line-height: 1.05; letter-spacing: -2.5px;
+      color: #0f172a; margin-bottom: 20px;
+    }
+
+    .page-hero h1 .highlight {
+      background: linear-gradient(135deg, #2563eb 0%, #6366f1 50%, #14b8a6 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+
+    .page-hero p {
+      max-width: 600px; margin: 0 auto;
+      font-size: 1.05rem; line-height: 1.7; color: var(--text-soft);
+    }
+
+    .hero-tags {
+      display: flex; flex-wrap: wrap; gap: 10px;
+      justify-content: center; margin-top: 32px;
+    }
+
+    .hero-tag {
+      padding: 7px 16px; border-radius: 999px;
+      font-size: 0.82rem; font-weight: 600; background: white;
+      border: 1px solid rgba(15,23,42,0.10);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06); color: var(--text);
+    }
+
+    /* ── PROJECTS GRID ── */
+    .projects-section {
+      max-width: 1100px; margin: 0 auto; padding: 80px 20px 100px;
+      display: grid; gap: 60px;
+    }
+
+    /* ── PROJECT CARD ── */
+    .project-card-diy {
+      background: white; border-radius: 28px; overflow: hidden;
+      box-shadow: 0 25px 60px rgba(15,23,42,0.09);
+      border: 1px solid rgba(15,23,42,0.06);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .project-card-diy:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 40px 80px rgba(37,99,235,0.15);
+    }
+
+    .card-inner { display: grid; grid-template-columns: 1fr 1fr; }
+    .card-inner.reverse { direction: rtl; }
+    .card-inner.reverse > * { direction: ltr; }
+
+    /* Visual side */
+    .card-visual {
+      position: relative; min-height: 380px; overflow: hidden; background: #0f172a;
+    }
+
+    /* ── CSS IMAGE SLIDER (Rolling Diapositives) ── */
+    /* Adjust animation duration depending on how many images you have */
+    .css-slider {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+    }
+    
+    .css-slider img {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+      opacity: 0; animation: fadeSlide 12s infinite; 
+    }
+
+    /* 3 Images = 12s total (4s each). Adjust timings if you add more photos! */
+    .css-slider img:nth-child(1) { animation-delay: 0s; }
+    .css-slider img:nth-child(2) { animation-delay: 4s; }
+    .css-slider img:nth-child(3) { animation-delay: 8s; }
+
+    @keyframes fadeSlide {
+      0%, 25% { opacity: 1; transform: scale(1.02); } /* Slowly zooms while visible */
+      33%, 92% { opacity: 0; transform: scale(1.05); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    /* Card content */
+    .card-content {
+      padding: 44px 48px; display: flex; flex-direction: column; justify-content: center;
+    }
+
+    .card-number {
+      font-family: 'Syne', sans-serif; font-size: 4rem; font-weight: 800;
+      line-height: 1; margin-bottom: 8px;
+      background: linear-gradient(135deg, rgba(37,99,235,0.12), rgba(99,102,241,0.08));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+
+    .card-eyebrow {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; }
+
+    .card-content h2 {
+      font-family: 'Syne', sans-serif; font-size: 1.65rem; font-weight: 700;
+      line-height: 1.2; margin-bottom: 16px; color: var(--text);
+    }
+
+    .card-content p {
+      font-size: 0.95rem; line-height: 1.7; color: var(--text-soft); margin-bottom: 12px;
+    }
+
+    .card-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+    .card-tag { padding: 5px 13px; border-radius: 999px; font-size: 0.78rem; font-weight: 600; border: 1px solid; }
+
+    /* Color themes per card */
+    .theme-indigo .card-eyebrow { color: #6366f1; }
+    .theme-indigo .eyebrow-dot { background: #6366f1; }
+    .theme-indigo .card-tag { background: rgba(99,102,241,0.07); border-color: rgba(99,102,241,0.25); color: #4338ca; }
+
+    .theme-teal .card-eyebrow { color: #14b8a6; }
+    .theme-teal .eyebrow-dot { background: #14b8a6; }
+    .theme-teal .card-tag { background: rgba(20,184,166,0.07); border-color: rgba(20,184,166,0.25); color: #0f766e; }
+
+    .theme-blue .card-eyebrow { color: #2563eb; }
+    .theme-blue .eyebrow-dot { background: #2563eb; }
+    .theme-blue .card-tag { background: rgba(37,99,235,0.07); border-color: rgba(37,99,235,0.25); color: #1e40af; }
+
+    /* Highlights list */
+    .highlights-mini { margin-top: 18px; display: flex; flex-direction: column; gap: 8px; }
+    .highlight-item { display: flex; align-items: flex-start; gap: 10px; font-size: 0.88rem; color: var(--text-soft); line-height: 1.5; }
+    .highlight-item i { margin-top: 3px; font-size: 0.75rem; flex-shrink: 0; }
+
+    /* ── FOOTER CTA ── */
+    .footer-cta { text-align: center; padding: 0 20px 100px; }
+    .footer-cta p { color: var(--text-soft); margin-bottom: 24px; font-size: 1rem; }
+    
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 14px 32px; border-radius: 999px;
+      text-decoration: none; font-weight: 600; font-size: 1rem;
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-indigo)); color: white;
+      box-shadow: 0 10px 30px rgba(37,99,235,0.35); transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(37,99,235,0.45); }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.25s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .card-inner, .card-inner.reverse { grid-template-columns: 1fr; direction: ltr; }
+      .card-visual { min-height: 300px; }
+      .card-content { padding: 32px 30px; }
+      .navbar { padding: 16px 20px; }
+    }
+  </style>
 </head>
+<body>
 
-<body class="project-page">
+  <nav class="navbar">
+    <div class="brand">
+      <div class="logo-box">DG</div>
+      <span class="logo-text">David Genotelle</span>
+    </div>
+    <a href="index.html" class="back-btn">
+      <i class="fa-solid fa-arrow-left"></i> Back to Portfolio
+    </a>
+  </nav>
 
-<!-- ===== NAVBAR ===== -->
-<header class="navbar project-navbar">
-  <a href="index.html" class="nav-btn back-btn">
-    <i class="fa-solid fa-arrow-left"></i>
-    <span>Back</span>
-  </a>
-</header>
+  <section class="page-hero">
+    <div class="hero-eyebrow">
+      <i class="fa-solid fa-screwdriver-wrench"></i>
+      Maker & DIY
+    </div>
+    <h1>Personal Engineering<br/><span class="highlight">Projects</span></h1>
+    <p>A collection of hands-on builds I've been working on since high school, driven by curiosity and a love for "making" across different disciplines.</p>
+    <div class="hero-tags">
+      <span class="hero-tag">🎸 Woodworking</span>
+      <span class="hero-tag">🤖 Arduino</span>
+      <span class="hero-tag">🔊 Acoustics</span>
+      <span class="hero-tag">⚡ Electronics</span>
+      <span class="hero-tag">📐 CAD Design</span>
+    </div>
+  </section>
 
-<!-- ===== PROJECT HERO ===== -->
-<section class="project-hero project-hero--toep">
-  <div class="project-hero-card">
+  <div class="projects-section">
 
-    <div class="project-tags">
-      <span class="project-chip">Biomedical Robotics</span>
-      <span class="project-chip featured">RESEARCH</span>
+    <div class="project-card-diy reveal">
+      <div class="card-inner">
+        <div class="card-visual">
+          <div class="css-slider">
+            <img src="assets\images\Personnal_projects\temp_test\guitar_2.jpg" alt="Guitar Build 1">
+            <img src="assets\images\Personnal_projects\temp_test\guitar_3.jpg" alt="Guitar Build 2">
+            <img src="assets\images\Personnal_projects\temp_test\obstacle_1.jpg" alt="Guitar Build 3">
+          </div>
+        </div>
+
+        <div class="card-content theme-indigo">
+          <div class="card-number">01</div>
+          <div class="card-eyebrow">
+            <span class="eyebrow-dot"></span>
+            Woodworking & Electronics
+          </div>
+          <h2>Custom Electric Guitar Build</h2>
+          <p>End-to-end design and fabrication of an electric guitar. This project involved everything from selecting raw wood and routing the body, to complex fretwork and custom electronic wiring.</p>
+          <div class="highlights-mini">
+            <div class="highlight-item">
+              <i class="fa-solid fa-hammer" style="color:#6366f1"></i>
+              Body routing, shaping, and finishing
+            </div>
+            <div class="highlight-item">
+              <i class="fa-solid fa-ruler-combined" style="color:#6366f1"></i>
+              Neck shaping, fret leveling, and precise intonation
+            </div>
+            <div class="highlight-item">
+              <i class="fa-solid fa-plug" style="color:#6366f1"></i>
+              Custom pickup wiring and copper cavity shielding
+            </div>
+          </div>
+          <div class="card-tags">
+            <span class="card-tag">Luthierie</span>
+            <span class="card-tag">Woodworking</span>
+            <span class="card-tag">Electronics</span>
+            <span class="card-tag">Soldering</span>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <h1 class="project-title">Robotization of a Trans-Oesophageal Echocardiography Probe</h1>
+    <div class="project-card-diy reveal delay-1">
+      <div class="card-inner reverse">
+        <div class="card-visual">
+          <div class="css-slider">
+            <img src="https://via.placeholder.com/600x600/0f766e/ffffff?text=Ultrasound+Photo+1" alt="Arduino Project 1">
+            <img src="https://via.placeholder.com/600x600/115e59/ffffff?text=Ultrasound+Photo+2" alt="Arduino Project 2">
+            <img src="https://via.placeholder.com/600x600/134e4a/ffffff?text=Ultrasound+Photo+3" alt="Arduino Project 3">
+          </div>
+        </div>
 
-    <p class="project-intro">
-  Research project focused on the development of a robotic assistance system
-  for remote manipulation of a trans-oesophageal echocardiography (TOE) probe.
-  The work addresses safety, ergonomics, and precision challenges in
-  interventional cardiology, while respecting clinical and industrial
-  confidentiality constraints.
-</p>
-
-    <div class="project-stats">
-      <div class="stat">
-        <span class="stat-value">Medical Robotics</span>
-        <span class="stat-label">Application Field</span>
-      </div>
-      <div class="stat">
-        <span class="stat-value">Remote Control</span>
-        <span class="stat-label">System Approach</span>
-      </div>
-      <div class="stat">
-        <span class="stat-value">Image-Guided</span>
-        <span class="stat-label">Navigation</span>
+        <div class="card-content theme-teal">
+          <div class="card-number">02</div>
+          <div class="card-eyebrow">
+            <span class="eyebrow-dot"></span>
+            Assistive Technology
+          </div>
+          <h2>Ultrasound Obstacle Detection</h2>
+          <p>An Arduino-based wearable system designed for visually impaired individuals. It utilizes ultrasonic sensors to detect obstacles at chest and head level, providing intuitive haptic feedback to the user.</p>
+          <div class="highlights-mini">
+            <div class="highlight-item">
+              <i class="fa-solid fa-microchip" style="color:#14b8a6"></i>
+              Programmed via Arduino (C++)
+            </div>
+            <div class="highlight-item">
+              <i class="fa-solid fa-satellite-dish" style="color:#14b8a6"></i>
+              Integration of HC-SR04 ultrasonic sensors
+            </div>
+            <div class="highlight-item">
+              <i class="fa-solid fa-hand-holding-hand" style="color:#14b8a6"></i>
+              Wearable ergonomic design with vibration feedback
+            </div>
+          </div>
+          <div class="card-tags">
+            <span class="card-tag">Arduino</span>
+            <span class="card-tag">C++</span>
+            <span class="card-tag">Embedded Systems</span>
+            <span class="card-tag">Sensors</span>
+          </div>
+        </div>
       </div>
     </div>
 
-<div class="project-hero-image-wrapper" style="display:flex; align-items:center; gap:32px;">
-  <img
-    src="assets/images/ihu_logo.jpg"
-    alt="IHU Logo"
-    class="project-hero-logo"
-  >
-  <img
-    src="assets/images/logo_icube.png"
-    alt="Partner Logo"
-    class="project-hero-logo"
-    style="height:140px; width:auto;"
-  >
-</div>
+    <div class="project-card-diy reveal delay-2">
+      <div class="card-inner">
+        <div class="card-visual">
+          <div class="css-slider">
+            <img src="https://via.placeholder.com/600x600/1e40af/ffffff?text=Studio+Photo+1" alt="Studio Build 1">
+            <img src="https://via.placeholder.com/600x600/1d4ed8/ffffff?text=Studio+Photo+2" alt="Studio Build 2">
+            <img src="https://via.placeholder.com/600x600/2563eb/ffffff?text=Studio+Photo+3" alt="Studio Build 3">
+          </div>
+        </div>
 
-
-
-
-  </div>
-</section>
-
-<!-- ===== PROJECT DETAILS ===== -->
-<section class="project-content">
-
-  <div class="project-grid">
-
-   <div class="content-card">
-  <h2>Project Context</h2>
-  <p>
-    Trans-oesophageal echocardiography (TOE) is a key imaging modality
-    for guiding minimally invasive structural heart interventions.
-    Its use in interventional settings requires continuous and precise
-    probe manipulation under fluoroscopic guidance.
-  </p>
-  <p>
-    This project was conducted in a clinical and research environment
-    and involved close interaction with medical professionals.
-    Due to confidentiality considerations, only high-level aspects
-    of the project are presented here.
-  </p>
-</div>
-
-
-    <div class="content-card highlights">
-      <h2>Project Objectives</h2>
-      <ul class="highlight-list">
-  <li>Explore robotic assistance for <strong>remote TOE probe manipulation</strong></li>
-  <li>Address clinician exposure to <strong>X-ray radiation</strong></li>
-  <li>Improve ergonomics and patient safety during long procedures</li>
-  <li>Investigate <strong>repeatable and stable</strong> probe positioning</li>
-  <li>Consider integration with <strong>image-based guidance</strong></li>
-</ul>
-
+        <div class="card-content theme-blue">
+          <div class="card-number">03</div>
+          <div class="card-eyebrow">
+            <span class="eyebrow-dot"></span>
+            Acoustics & Carpentry
+          </div>
+          <h2>Music Rehearsal Room Build</h2>
+          <p>Complete renovation of a garage space to create a sound-isolated music rehearsal room for my father. The project required careful acoustic planning, heavy framing, and interior finishing.</p>
+          <div class="highlights-mini">
+            <div class="highlight-item">
+              <i class="fa-solid fa-house-crack" style="color:#2563eb"></i>
+              "Room-within-a-room" structural isolation framing
+            </div>
+            <div class="highlight-item">
+              <i class="fa-solid fa-layer-group" style="color:#2563eb"></i>
+              High-density acoustic insulation and drywalling
+            </div>
+            <div class="highlight-item">
+              <i class="fa-solid fa-bolt" style="color:#2563eb"></i>
+              Electrical wiring and custom acoustic panels
+            </div>
+          </div>
+          <div class="card-tags">
+            <span class="card-tag">Acoustics</span>
+            <span class="card-tag">Carpentry</span>
+            <span class="card-tag">DIY Construction</span>
+            <span class="card-tag">Planning</span>
+          </div>
+        </div>
+      </div>
     </div>
 
   </div>
 
-  <div class="content-card wide">
-    <h2>Technical Approach</h2>
-    <p>
-      The project focuses on the mechanical and mechatronic design
-      of a robotic interface capable of manipulating the TOE probe
-      with high precision while preserving clinical usability.
-    </p>
-    <p>
-      The robotic system is combined with image-based feedback,
-      enabling intuitive and accurate control during interventional procedures.
-      Emphasis is placed on safety, ergonomics and seamless integration
-      into the clinical workflow.
-    </p>
+  <div class="footer-cta">
+    <p>Interested in discussing these builds or my engineering projects?</p>
+    <a href="index.html" class="cta-btn">
+      <i class="fa-solid fa-arrow-left"></i>
+      Back to Portfolio
+    </a>
   </div>
 
-</section>
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('active');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
 
-<script src="js/scroll.js"></script>
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
