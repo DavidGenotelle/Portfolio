@@ -135,7 +135,7 @@
 
     /* Visual side */
     .card-visual {
-      position: relative; min-height: 420px; overflow: hidden; background: #0f172a;
+      position: relative; min-height: 440px; overflow: hidden; background: #0f172a;
     }
 
     /* ── AUTO IMAGE SLIDER ── */
@@ -252,11 +252,11 @@
       Master's Research Project
     </div>
     <h1>AURIGA: Robotic <br/><span class="highlight">Scrub Nurse</span></h1>
-    <p>Addressing the healthcare professional shortage by bridging the gap between "black box" robotic policies and supervisable clinical assistance using Imitation Learning and Vision-Language-Action (VLA) models.</p>
+    <p>Investigating the limitations of state-of-the-art imitation learning in medical robotics, and researching new architectures to introduce explicit validation into "black box" control policies.</p>
     <div class="hero-tags">
       <span class="hero-tag">🤖 Bimanual Robotics</span>
       <span class="hero-tag">🧠 Imitation Learning</span>
-      <span class="hero-tag">👁️ Computer Vision</span>
+      <span class="hero-tag">🔬 Research & Evaluation</span>
       <span class="hero-tag">⚙️ ROS2</span>
       <span class="hero-tag">🏥 HealthTech</span>
     </div>
@@ -268,8 +268,8 @@
       <div class="card-inner">
         <div class="card-visual">
           <div class="auto-slider">
-            <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=800&auto=format&fit=crop" alt="Dobot Setup 1">
-            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop" alt="Telemanipulation">
+            <img src="assets/images/AURIGA/dobot_X-Trainer_transparent.png" alt="Dobot Setup 1">
+            <img src="assets/images/AURIGA/demo_pick_syringe.jpeg" alt="Telemanipulation">
           </div>
         </div>
 
@@ -277,10 +277,10 @@
           <div class="card-number">01</div>
           <div class="card-eyebrow">
             <span class="eyebrow-dot"></span>
-            Hardware & Telemanipulation
+            Hardware & Protocol
           </div>
           <h2>Bimanual Data Collection Platform</h2>
-          <p>Implementation of a leader-follower telemanipulation system using the Dobot X-Trainer to gather high-quality human demonstrations from actual surgical nurses.</p>
+          <p>Set up a leader-follower telemanipulation architecture using the Dobot X-Trainer to gather multimodal, high-quality human demonstrations from clinical experts.</p>
           <div class="highlights-mini">
             <div class="highlight-item">
               <i class="fa-solid fa-code-branch" style="color:#6366f1"></i>
@@ -288,11 +288,11 @@
             </div>
             <div class="highlight-item">
               <i class="fa-solid fa-video" style="color:#6366f1"></i>
-              Multimodal data collection: Joint angles and 3x RGB-Depth camera feeds.
+              Collected synchronous multimodal data: Joint angles and 3x RGB-Depth camera feeds.
             </div>
             <div class="highlight-item">
               <i class="fa-solid fa-user-nurse" style="color:#6366f1"></i>
-              Gathered ~50 clinical demonstrations per specific surgical task.
+              Designed tasks (sterile pack opening, instrument handover) to extract clinical trajectories.
             </div>
           </div>
           <div class="card-tags">
@@ -308,7 +308,7 @@
       <div class="card-inner reverse">
         <div class="card-visual">
           <div class="auto-slider">
-            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800&auto=format&fit=crop" alt="AI Architecture">
+            <img src="assets/images/AURIGA/inference_pick_syringe.jpeg" alt="ACT Spatial Generalization Evaluation">
           </div>
         </div>
 
@@ -316,29 +316,28 @@
           <div class="card-number">02</div>
           <div class="card-eyebrow">
             <span class="eyebrow-dot"></span>
-            Core Architecture
+            Policy Testing & Limitations
           </div>
-          <h2>Language-Guided Imitation Learning</h2>
-          <p>Designed a novel architecture integrating textual input to improve classical imitation learning. This enables explicit task validation and prevents the robot from blindly executing erroneous maneuvers.</p>
+          <h2>Evaluating SoTA Policy Limits</h2>
+          <p>Deployed the ALOHA ACT (Action Chunking with Transformers) policy and conducted a deep analysis of its execution capabilities, revealing critical limitations in how current models handle variance.</p>
           <div class="highlights-mini">
             <div class="highlight-item">
-              <i class="fa-solid fa-brain" style="color:#14b8a6"></i>
-              Task decomposition using LLaMA-3-instruct LLMs.
+              <i class="fa-solid fa-ruler-combined" style="color:#14b8a6"></i>
+              <strong>Spatial Generalization:</strong> Success rates drop drastically when the initial pose of the object varies from the training data.
             </div>
             <div class="highlight-item">
-              <i class="fa-solid fa-eye" style="color:#14b8a6"></i>
-              Closed-loop Visual Question Answering (VQA) to confirm task success.
+              <i class="fa-solid fa-lightbulb" style="color:#14b8a6"></i>
+              <strong>Environmental Sensitivity:</strong> The policy struggles to adapt to changing lighting conditions, shadows, and camera resolutions.
             </div>
             <div class="highlight-item">
-              <i class="fa-solid fa-layer-group" style="color:#14b8a6"></i>
-              Implementation and benchmarking of SoTA policies like ALOHA (ACT) and OpenVLA.
+              <i class="fa-solid fa-chart-simple" style="color:#14b8a6"></i>
+              <strong>Metric Deficiencies:</strong> Highlighted that simply measuring "success rate" fails to capture how strictly the model mimics the demonstrated trajectory without contextual understanding.
             </div>
           </div>
           <div class="card-tags">
-            <span class="card-tag">LLaMA-3</span>
-            <span class="card-tag">OpenVLA</span>
-            <span class="card-tag">VQA</span>
             <span class="card-tag">ALOHA ACT</span>
+            <span class="card-tag">Generalization limits</span>
+            <span class="card-tag">SoTA Analysis</span>
           </div>
         </div>
       </div>
@@ -348,7 +347,7 @@
       <div class="card-inner">
         <div class="card-visual">
           <div class="auto-slider">
-             <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=800&auto=format&fit=crop" alt="Robot Evaluation">
+            <img src="assets/images/auriga_architecture_concept.jpg" alt="Research Architecture Concept">
           </div>
         </div>
 
@@ -356,28 +355,28 @@
           <div class="card-number">03</div>
           <div class="card-eyebrow">
             <span class="eyebrow-dot"></span>
-            Clinical Tasks & Evaluation
+            Ongoing Research
           </div>
-          <h2>Executing Surgical Maneuvers</h2>
-          <p>Evaluated the trained policies in physical mock-up OR environments. The robot successfully executes complex actions requiring high precision and bi-manual coordination.</p>
+          <h2>Designing a Validation-Aware Architecture</h2>
+          <p>Current policies act as "black boxes" with no intrinsic knowledge of whether a task was actually successful. I am currently designing a novel architecture to introduce explicit task validation and error recovery.</p>
           <div class="highlights-mini">
             <div class="highlight-item">
-              <i class="fa-solid fa-scissors" style="color:#2563eb"></i>
-              <strong>Instrument Handover:</strong> Grasping, orienting, and transferring surgical tools safely.
+              <i class="fa-solid fa-sitemap" style="color:#2563eb"></i>
+              <strong>Task Decomposition:</strong> Researching language-guided models (LLMs) to break down complex tasks into manageable sub-tasks.
             </div>
             <div class="highlight-item">
-              <i class="fa-solid fa-box-open" style="color:#2563eb"></i>
-              <strong>Peel Pack Opening:</strong> Bimanual coordination to grasp tabs and pull sterile bags open.
+              <i class="fa-solid fa-eye" style="color:#2563eb"></i>
+              <strong>Explicit Validation:</strong> Exploring Visual Question Answering (VQA) to visually confirm if a sub-task is successfully completed.
             </div>
             <div class="highlight-item">
-              <i class="fa-solid fa-chart-line" style="color:#2563eb"></i>
-              <strong>Spatial Generalization:</strong> Tested across variable random/static orientations and translations.
+              <i class="fa-solid fa-rotate-left" style="color:#2563eb"></i>
+              <strong>Error Recovery:</strong> Aiming to replace blind task execution with closed-loop supervision that allows the robot to retry upon failure.
             </div>
           </div>
           <div class="card-tags">
-            <span class="card-tag">Bimanual Coordination</span>
-            <span class="card-tag">Spatial Generalization</span>
-            <span class="card-tag">Clinical Evaluation</span>
+            <span class="card-tag">Research Phase</span>
+            <span class="card-tag">VQA Validation</span>
+            <span class="card-tag">Closed-loop</span>
           </div>
         </div>
       </div>
@@ -386,7 +385,7 @@
   </div>
 
   <div class="footer-cta">
-    <p>Want to know more about my research in Medical Robotics?</p>
+    <p>Want to see more of my background or discuss my research?</p>
     <a href="index.html" class="cta-btn">
       <i class="fa-solid fa-arrow-left"></i>
       Back to Portfolio
@@ -407,7 +406,6 @@
 
     // Automatically runs all sliders on the page
     document.querySelectorAll('.auto-slider').forEach(slider => {
-      // Look for both images and videos
       const mediaElements = slider.querySelectorAll('img, video');
       if (mediaElements.length <= 1) {
           if (mediaElements.length === 1) mediaElements.classList.add('active');
