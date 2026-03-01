@@ -1805,7 +1805,7 @@ section {
 
 /* Visual Side & Auto Slider */
 .card-visual {
-  position: relative; min-height: 440px; overflow: hidden; background: #0f172a;
+  position: relative; min-height: 440px; overflow: hidden; background: #ffffff;
 }
 
 .auto-slider {
