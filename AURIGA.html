@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@600;700;800&family=Cabinet+Grotesk:wght@700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  
+
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -29,7 +29,7 @@
       Master's Research Project
     </div>
     <h1>AURIGA: Robotic <br/><span class="highlight">Scrub Nurse</span></h1>
-    <p>Investigating the limitations of state-of-the-art imitation learning in medical robotics, and researching new architectures to introduce explicit validation into "black box" control policies.</p>
+    <p>Investigating the limitations of state-of-the-art imitation learning in medical robotics, to pave the way for safer, more flexible clinical assistants in the Operating Room.</p>
     <div class="hero-tags">
       <span class="hero-tag">🤖 Bimanual Robotics</span>
       <span class="hero-tag">🧠 Imitation Learning</span>
@@ -45,8 +45,7 @@
       <div class="card-inner">
         <div class="card-visual">
           <div class="auto-slider">
-            <img src="assets/images/auriga_robot_setup.jpg" alt="Dobot Setup 1">
-            <img src="assets/images/auriga_telemanipulation.jpg" alt="Telemanipulation">
+            <img src="assets/images/auriga_scrub_nurse_context.jpg" alt="Clinical Scrub Nurse Context">
           </div>
         </div>
 
@@ -54,22 +53,62 @@
           <div class="card-number">01</div>
           <div class="card-eyebrow">
             <span class="eyebrow-dot"></span>
+            Clinical Motivation
+          </div>
+          <h2>Addressing the Healthcare Shortage</h2>
+          <p>The medical field is facing an expected shortage of 2.3 million trained health workers in Europe by 2030. To mitigate this, robotic assistants must be developed to handle repetitive and risky tasks in the Operating Room.</p>
+          <div class="highlights-mini">
+            <div class="highlight-item">
+              <i class="fa-solid fa-user-nurse" style="color:#6366f1"></i>
+              <strong>Occupational Risks:</strong> Scrub nurses face high-stress environments involving repetitive motions, radiation exposure, and cutting hazards.
+            </div>
+            <div class="highlight-item">
+              <i class="fa-solid fa-robot" style="color:#6366f1"></i>
+              <strong>Beyond Rule-Based Systems:</strong> Traditional robots (like Moxi) lack the flexibility needed to adapt to dynamic surgical procedures without constant expert reprogramming.
+            </div>
+            <div class="highlight-item">
+              <i class="fa-solid fa-brain" style="color:#6366f1"></i>
+              <strong>The AI Need:</strong> Imitation Learning offers a pathway to train robots directly from human demonstrations, granting flexibility for complex medical tasks.
+            </div>
+          </div>
+          <div class="card-tags">
+            <span class="card-tag">Clinical Context</span>
+            <span class="card-tag">Staff Shortage</span>
+            <span class="card-tag">OR Dynamics</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-detail-card reveal delay-1">
+      <div class="card-inner reverse">
+        <div class="card-visual">
+          <div class="auto-slider">
+            <img src="assets/images/auriga_robot_setup.jpg" alt="Dobot Setup 1">
+            <img src="assets/images/auriga_telemanipulation.jpg" alt="Telemanipulation">
+          </div>
+        </div>
+
+        <div class="card-content theme-teal">
+          <div class="card-number">02</div>
+          <div class="card-eyebrow">
+            <span class="eyebrow-dot"></span>
             Hardware & Protocol
           </div>
           <h2>Bimanual Data Collection Platform</h2>
-          <p>Set up a leader-follower telemanipulation architecture using the Dobot X-Trainer to gather multimodal, high-quality human demonstrations from clinical experts.</p>
+          <p>To train advanced AI policies, I set up a leader-follower telemanipulation architecture using the Dobot X-Trainer to gather multimodal, high-quality human demonstrations from clinical experts.</p>
           <div class="highlights-mini">
             <div class="highlight-item">
-              <i class="fa-solid fa-code-branch" style="color:#6366f1"></i>
+              <i class="fa-solid fa-code-branch" style="color:#14b8a6"></i>
               Configured a 14 Degrees of Freedom (DoF) bimanual platform.
             </div>
             <div class="highlight-item">
-              <i class="fa-solid fa-video" style="color:#6366f1"></i>
+              <i class="fa-solid fa-video" style="color:#14b8a6"></i>
               Collected synchronous multimodal data: Joint angles and 3x RGB-Depth camera feeds.
             </div>
             <div class="highlight-item">
-              <i class="fa-solid fa-user-nurse" style="color:#6366f1"></i>
-              Designed tasks (sterile pack opening, instrument handover) to extract clinical trajectories.
+              <i class="fa-solid fa-clipboard-list" style="color:#14b8a6"></i>
+              Designed tasks (sterile pack opening, instrument handover) to extract realistic clinical trajectories.
             </div>
           </div>
           <div class="card-tags">
@@ -81,16 +120,16 @@
       </div>
     </div>
 
-    <div class="project-detail-card reveal delay-1">
-      <div class="card-inner reverse">
+    <div class="project-detail-card reveal delay-2">
+      <div class="card-inner">
         <div class="card-visual">
           <div class="auto-slider">
             <img src="assets/images/auriga_act_evaluation.jpg" alt="ACT Spatial Generalization Evaluation">
           </div>
         </div>
 
-        <div class="card-content theme-teal">
-          <div class="card-number">02</div>
+        <div class="card-content theme-blue">
+          <div class="card-number">03</div>
           <div class="card-eyebrow">
             <span class="eyebrow-dot"></span>
             Policy Testing & Limitations
@@ -99,16 +138,16 @@
           <p>Deployed the ALOHA ACT (Action Chunking with Transformers) policy and conducted a deep analysis of its execution capabilities, revealing critical limitations in how current models handle variance.</p>
           <div class="highlights-mini">
             <div class="highlight-item">
-              <i class="fa-solid fa-ruler-combined" style="color:#14b8a6"></i>
+              <i class="fa-solid fa-ruler-combined" style="color:#2563eb"></i>
               <strong>Spatial Generalization:</strong> Success rates drop drastically when the initial pose of the object varies from the training data.
             </div>
             <div class="highlight-item">
-              <i class="fa-solid fa-lightbulb" style="color:#14b8a6"></i>
+              <i class="fa-solid fa-lightbulb" style="color:#2563eb"></i>
               <strong>Environmental Sensitivity:</strong> The policy struggles to adapt to changing lighting conditions, shadows, and camera resolutions.
             </div>
             <div class="highlight-item">
-              <i class="fa-solid fa-chart-simple" style="color:#14b8a6"></i>
-              <strong>Metric Deficiencies:</strong> Highlighted that simply measuring "success rate" fails to capture how strictly the model mimics the demonstrated trajectory without contextual understanding.
+              <i class="fa-solid fa-chart-simple" style="color:#2563eb"></i>
+              <strong>Metric Deficiencies:</strong> Highlighted that simply measuring "success rate" fails to capture how strictly the model mimics the demonstrated trajectory without contextual task understanding.
             </div>
           </div>
           <div class="card-tags">
@@ -120,6 +159,7 @@
       </div>
     </div>
 
+    <!--
     <div class="project-detail-card reveal delay-2">
       <div class="card-inner">
         <div class="card-visual">
@@ -157,7 +197,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
   </div>
 
