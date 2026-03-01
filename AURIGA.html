@@ -1,135 +1,428 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>AURIGA: Robotic Scrub Nurse – David Genotelle</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AURIGA Scrub Nurse — David Genotelle</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@600;700;800&family=Cabinet+Grotesk:wght@700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-  <!-- (Optionnel) Font Inter pour un rendu + premium -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-main: #f8fafc;
+      --glass: rgba(255,255,255,0.65);
+      --accent-blue: #2563eb;
+      --accent-indigo: #6366f1;
+      --accent-teal: #14b8a6;
+      --text: #0f172a;
+      --text-soft: rgba(15,23,42,0.65);
+    }
 
-  <link rel="stylesheet" href="css/style.css">
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg-main);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 60px; position: sticky; top: 0; z-index: 10;
+      background: rgba(255,255,255,0.75); backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(15,23,42,0.08);
+    }
+
+    .logo-box {
+      width: 42px; height: 42px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 1rem; color: white;
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-indigo));
+      box-shadow: 0 8px 20px rgba(37,99,235,0.35);
+    }
+
+    .brand { display: flex; align-items: center; gap: 14px; }
+    .logo-text { font-weight: 600; font-size: 1.2rem; }
+
+    .back-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 10px 20px; border-radius: 999px;
+      border: 1px solid rgba(15,23,42,0.10);
+      background: rgba(255,255,255,0.55);
+      text-decoration: none; color: var(--text); font-weight: 500;
+      transition: transform 0.25s, background 0.25s, border-color 0.25s;
+    }
+    
+    .back-btn:hover {
+      transform: translateY(-2px);
+      background: rgba(37,99,235,0.08);
+      border-color: rgba(37,99,235,0.25);
+    }
+
+    /* ── HERO ── */
+    .page-hero {
+      padding: 90px 20px 60px;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(37,99,235,0.10) 0%, transparent 50%),
+        radial-gradient(circle at 90% 100%, rgba(20,184,166,0.10) 0%, transparent 50%),
+        linear-gradient(135deg, #f8fafc 0%, #eef2f7 50%, #e0e7ff 100%);
+      text-align: center;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 16px; border-radius: 999px;
+      background: rgba(37,99,235,0.08); border: 1px solid rgba(37,99,235,0.20);
+      color: var(--accent-blue); font-size: 0.82rem; font-weight: 600; 
+      letter-spacing: 1px; text-transform: uppercase; margin-bottom: 24px;
+    }
+
+    .page-hero h1 {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(2.4rem, 5vw, 3.5rem); font-weight: 700;
+      line-height: 1.1; letter-spacing: -1.5px;
+      color: #0f172a; margin-bottom: 20px;
+    }
+
+    .page-hero h1 .highlight {
+      background: linear-gradient(135deg, #2563eb 0%, #14b8a6 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+
+    .page-hero p {
+      max-width: 650px; margin: 0 auto;
+      font-size: 1.05rem; line-height: 1.7; color: var(--text-soft);
+    }
+
+    .hero-tags {
+      display: flex; flex-wrap: wrap; gap: 10px;
+      justify-content: center; margin-top: 32px;
+    }
+
+    .hero-tag {
+      padding: 7px 16px; border-radius: 999px;
+      font-size: 0.82rem; font-weight: 600; background: white;
+      border: 1px solid rgba(15,23,42,0.10);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06); color: var(--text);
+    }
+
+    /* ── PROJECTS GRID ── */
+    .projects-section {
+      max-width: 1100px; margin: 0 auto; padding: 80px 20px 100px;
+      display: grid; gap: 60px;
+    }
+
+    /* ── PROJECT CARD ── */
+    .project-card-diy {
+      background: white; border-radius: 28px; overflow: hidden;
+      box-shadow: 0 25px 60px rgba(15,23,42,0.09);
+      border: 1px solid rgba(15,23,42,0.06);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .project-card-diy:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 40px 80px rgba(37,99,235,0.15);
+    }
+
+    .card-inner { display: grid; grid-template-columns: 1fr 1fr; }
+    .card-inner.reverse { direction: rtl; }
+    .card-inner.reverse > * { direction: ltr; }
+
+    /* Visual side */
+    .card-visual {
+      position: relative; min-height: 420px; overflow: hidden; background: #0f172a;
+    }
+
+    /* ── AUTO IMAGE SLIDER ── */
+    .auto-slider {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+    }
+    
+    .auto-slider img, .auto-slider video {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+      opacity: 0; 
+      transform: scale(1.05);
+      transition: opacity 1.2s ease-in-out, transform 5s ease-out;
+    }
+
+    .auto-slider img.active, .auto-slider video.active {
+      opacity: 1;
+      transform: scale(1);
+      z-index: 1;
+    }
+
+    /* Card content */
+    .card-content {
+      padding: 44px 48px; display: flex; flex-direction: column; justify-content: center;
+    }
+
+    .card-number {
+      font-family: 'Syne', sans-serif; font-size: 4rem; font-weight: 800;
+      line-height: 1; margin-bottom: 8px;
+      background: linear-gradient(135deg, rgba(37,99,235,0.12), rgba(99,102,241,0.08));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+
+    .card-eyebrow {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; }
+
+    .card-content h2 {
+      font-family: 'Syne', sans-serif; font-size: 1.65rem; font-weight: 700;
+      line-height: 1.2; margin-bottom: 16px; color: var(--text);
+    }
+
+    .card-content p {
+      font-size: 0.95rem; line-height: 1.7; color: var(--text-soft); margin-bottom: 12px;
+    }
+
+    .card-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+    .card-tag { padding: 5px 13px; border-radius: 999px; font-size: 0.78rem; font-weight: 600; border: 1px solid; }
+
+    /* Color themes per card */
+    .theme-indigo .card-eyebrow { color: #6366f1; }
+    .theme-indigo .eyebrow-dot { background: #6366f1; }
+    .theme-indigo .card-tag { background: rgba(99,102,241,0.07); border-color: rgba(99,102,241,0.25); color: #4338ca; }
+
+    .theme-teal .card-eyebrow { color: #14b8a6; }
+    .theme-teal .eyebrow-dot { background: #14b8a6; }
+    .theme-teal .card-tag { background: rgba(20,184,166,0.07); border-color: rgba(20,184,166,0.25); color: #0f766e; }
+
+    .theme-blue .card-eyebrow { color: #2563eb; }
+    .theme-blue .eyebrow-dot { background: #2563eb; }
+    .theme-blue .card-tag { background: rgba(37,99,235,0.07); border-color: rgba(37,99,235,0.25); color: #1e40af; }
+
+    /* Highlights list */
+    .highlights-mini { margin-top: 18px; display: flex; flex-direction: column; gap: 8px; }
+    .highlight-item { display: flex; align-items: flex-start; gap: 10px; font-size: 0.88rem; color: var(--text-soft); line-height: 1.5; }
+    .highlight-item i { margin-top: 3px; font-size: 0.75rem; flex-shrink: 0; }
+
+    /* ── FOOTER CTA ── */
+    .footer-cta { text-align: center; padding: 0 20px 100px; }
+    .footer-cta p { color: var(--text-soft); margin-bottom: 24px; font-size: 1rem; }
+    
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 14px 32px; border-radius: 999px;
+      text-decoration: none; font-weight: 600; font-size: 1rem;
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-indigo)); color: white;
+      box-shadow: 0 10px 30px rgba(37,99,235,0.35); transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(37,99,235,0.45); }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.25s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .card-inner, .card-inner.reverse { grid-template-columns: 1fr; direction: ltr; }
+      .card-visual { min-height: 300px; }
+      .card-content { padding: 32px 30px; }
+      .navbar { padding: 16px 20px; }
+    }
+  </style>
 </head>
+<body>
 
-<body class="project-page">
+  <nav class="navbar">
+    <div class="brand">
+      <div class="logo-box">DG</div>
+      <span class="logo-text">David Genotelle</span>
+    </div>
+    <a href="index.html" class="back-btn">
+      <i class="fa-solid fa-arrow-left"></i> Back to Portfolio
+    </a>
+  </nav>
 
-<!-- ===== NAVBAR ===== -->
-<header class="navbar project-navbar">
-  <a href="index.html" class="nav-btn back-btn">
-    <i class="fa-solid fa-arrow-left"></i>
-    <span>Back</span>
-  </a>
-</header>
+  <section class="page-hero">
+    <div class="hero-eyebrow">
+      <i class="fa-solid fa-robot"></i>
+      Master's Research Project
+    </div>
+    <h1>AURIGA: Robotic <br/><span class="highlight">Scrub Nurse</span></h1>
+    <p>Addressing the healthcare professional shortage by bridging the gap between "black box" robotic policies and supervisable clinical assistance using Imitation Learning and Vision-Language-Action (VLA) models.</p>
+    <div class="hero-tags">
+      <span class="hero-tag">🤖 Bimanual Robotics</span>
+      <span class="hero-tag">🧠 Imitation Learning</span>
+      <span class="hero-tag">👁️ Computer Vision</span>
+      <span class="hero-tag">⚙️ ROS2</span>
+      <span class="hero-tag">🏥 HealthTech</span>
+    </div>
+  </section>
 
-<!-- ===== PROJECT HERO ===== -->
-<section class="project-hero project-hero--toep">
-  <div class="project-hero-card">
+  <div class="projects-section">
 
-    <div class="project-tags">
-      <span class="project-chip">Biomedical Robotics</span>
-      <span class="project-chip featured">RESEARCH</span>
+    <div class="project-card-diy reveal">
+      <div class="card-inner">
+        <div class="card-visual">
+          <div class="auto-slider">
+            <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=800&auto=format&fit=crop" alt="Dobot Setup 1">
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop" alt="Telemanipulation">
+          </div>
+        </div>
+
+        <div class="card-content theme-indigo">
+          <div class="card-number">01</div>
+          <div class="card-eyebrow">
+            <span class="eyebrow-dot"></span>
+            Hardware & Telemanipulation
+          </div>
+          <h2>Bimanual Data Collection Platform</h2>
+          <p>Implementation of a leader-follower telemanipulation system using the Dobot X-Trainer to gather high-quality human demonstrations from actual surgical nurses.</p>
+          <div class="highlights-mini">
+            <div class="highlight-item">
+              <i class="fa-solid fa-code-branch" style="color:#6366f1"></i>
+              Configured a 14 Degrees of Freedom (DoF) bimanual platform.
+            </div>
+            <div class="highlight-item">
+              <i class="fa-solid fa-video" style="color:#6366f1"></i>
+              Multimodal data collection: Joint angles and 3x RGB-Depth camera feeds.
+            </div>
+            <div class="highlight-item">
+              <i class="fa-solid fa-user-nurse" style="color:#6366f1"></i>
+              Gathered ~50 clinical demonstrations per specific surgical task.
+            </div>
+          </div>
+          <div class="card-tags">
+            <span class="card-tag">Dobot X-Trainer</span>
+            <span class="card-tag">Telemanipulation</span>
+            <span class="card-tag">Multimodal Data</span>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <h1 class="project-title">Robotization of a Trans-Oesophageal Echocardiography Probe</h1>
+    <div class="project-card-diy reveal delay-1">
+      <div class="card-inner reverse">
+        <div class="card-visual">
+          <div class="auto-slider">
+            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800&auto=format&fit=crop" alt="AI Architecture">
+          </div>
+        </div>
 
-    <p class="project-intro">
-  Research project focused on the development of a robotic assistance system
-  for remote manipulation of a trans-oesophageal echocardiography (TOE) probe.
-  The work addresses safety, ergonomics, and precision challenges in
-  interventional cardiology, while respecting clinical and industrial
-  confidentiality constraints.
-</p>
-
-    <div class="project-stats">
-      <div class="stat">
-        <span class="stat-value">Medical Robotics</span>
-        <span class="stat-label">Application Field</span>
-      </div>
-      <div class="stat">
-        <span class="stat-value">Remote Control</span>
-        <span class="stat-label">System Approach</span>
-      </div>
-      <div class="stat">
-        <span class="stat-value">Image-Guided</span>
-        <span class="stat-label">Navigation</span>
+        <div class="card-content theme-teal">
+          <div class="card-number">02</div>
+          <div class="card-eyebrow">
+            <span class="eyebrow-dot"></span>
+            Core Architecture
+          </div>
+          <h2>Language-Guided Imitation Learning</h2>
+          <p>Designed a novel architecture integrating textual input to improve classical imitation learning. This enables explicit task validation and prevents the robot from blindly executing erroneous maneuvers.</p>
+          <div class="highlights-mini">
+            <div class="highlight-item">
+              <i class="fa-solid fa-brain" style="color:#14b8a6"></i>
+              Task decomposition using LLaMA-3-instruct LLMs.
+            </div>
+            <div class="highlight-item">
+              <i class="fa-solid fa-eye" style="color:#14b8a6"></i>
+              Closed-loop Visual Question Answering (VQA) to confirm task success.
+            </div>
+            <div class="highlight-item">
+              <i class="fa-solid fa-layer-group" style="color:#14b8a6"></i>
+              Implementation and benchmarking of SoTA policies like ALOHA (ACT) and OpenVLA.
+            </div>
+          </div>
+          <div class="card-tags">
+            <span class="card-tag">LLaMA-3</span>
+            <span class="card-tag">OpenVLA</span>
+            <span class="card-tag">VQA</span>
+            <span class="card-tag">ALOHA ACT</span>
+          </div>
+        </div>
       </div>
     </div>
 
-<div class="project-hero-image-wrapper" style="display:flex; align-items:center; gap:32px;">
-  <img
-    src="assets/images/ihu_logo.jpg"
-    alt="IHU Logo"
-    class="project-hero-logo"
-  >
-  <img
-    src="assets/images/logo_icube.png"
-    alt="Partner Logo"
-    class="project-hero-logo"
-    style="height:140px; width:auto;"
-  >
-</div>
+    <div class="project-card-diy reveal delay-2">
+      <div class="card-inner">
+        <div class="card-visual">
+          <div class="auto-slider">
+             <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=800&auto=format&fit=crop" alt="Robot Evaluation">
+          </div>
+        </div>
 
-
-
-
-  </div>
-</section>
-
-<!-- ===== PROJECT DETAILS ===== -->
-<section class="project-content">
-
-  <div class="project-grid">
-
-   <div class="content-card">
-  <h2>Project Context</h2>
-  <p>
-    Trans-oesophageal echocardiography (TOE) is a key imaging modality
-    for guiding minimally invasive structural heart interventions.
-    Its use in interventional settings requires continuous and precise
-    probe manipulation under fluoroscopic guidance.
-  </p>
-  <p>
-    This project was conducted in a clinical and research environment
-    and involved close interaction with medical professionals.
-    Due to confidentiality considerations, only high-level aspects
-    of the project are presented here.
-  </p>
-</div>
-
-
-    <div class="content-card highlights">
-      <h2>Project Objectives</h2>
-      <ul class="highlight-list">
-  <li>Explore robotic assistance for <strong>remote TOE probe manipulation</strong></li>
-  <li>Address clinician exposure to <strong>X-ray radiation</strong></li>
-  <li>Improve ergonomics and patient safety during long procedures</li>
-  <li>Investigate <strong>repeatable and stable</strong> probe positioning</li>
-  <li>Consider integration with <strong>image-based guidance</strong></li>
-</ul>
-
+        <div class="card-content theme-blue">
+          <div class="card-number">03</div>
+          <div class="card-eyebrow">
+            <span class="eyebrow-dot"></span>
+            Clinical Tasks & Evaluation
+          </div>
+          <h2>Executing Surgical Maneuvers</h2>
+          <p>Evaluated the trained policies in physical mock-up OR environments. The robot successfully executes complex actions requiring high precision and bi-manual coordination.</p>
+          <div class="highlights-mini">
+            <div class="highlight-item">
+              <i class="fa-solid fa-scissors" style="color:#2563eb"></i>
+              <strong>Instrument Handover:</strong> Grasping, orienting, and transferring surgical tools safely.
+            </div>
+            <div class="highlight-item">
+              <i class="fa-solid fa-box-open" style="color:#2563eb"></i>
+              <strong>Peel Pack Opening:</strong> Bimanual coordination to grasp tabs and pull sterile bags open.
+            </div>
+            <div class="highlight-item">
+              <i class="fa-solid fa-chart-line" style="color:#2563eb"></i>
+              <strong>Spatial Generalization:</strong> Tested across variable random/static orientations and translations.
+            </div>
+          </div>
+          <div class="card-tags">
+            <span class="card-tag">Bimanual Coordination</span>
+            <span class="card-tag">Spatial Generalization</span>
+            <span class="card-tag">Clinical Evaluation</span>
+          </div>
+        </div>
+      </div>
     </div>
 
   </div>
 
-  <div class="content-card wide">
-    <h2>Technical Approach</h2>
-    <p>
-      The project focuses on the mechanical and mechatronic design
-      of a robotic interface capable of manipulating the TOE probe
-      with high precision while preserving clinical usability.
-    </p>
-    <p>
-      The robotic system is combined with image-based feedback,
-      enabling intuitive and accurate control during interventional procedures.
-      Emphasis is placed on safety, ergonomics and seamless integration
-      into the clinical workflow.
-    </p>
+  <div class="footer-cta">
+    <p>Want to know more about my research in Medical Robotics?</p>
+    <a href="index.html" class="cta-btn">
+      <i class="fa-solid fa-arrow-left"></i>
+      Back to Portfolio
+    </a>
   </div>
 
-</section>
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('active');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
 
-<script src="js/scroll.js"></script>
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Automatically runs all sliders on the page
+    document.querySelectorAll('.auto-slider').forEach(slider => {
+      // Look for both images and videos
+      const mediaElements = slider.querySelectorAll('img, video');
+      if (mediaElements.length <= 1) {
+          if (mediaElements.length === 1) mediaElements.classList.add('active');
+          return; 
+      }
+      
+      let currentIndex = 0;
+      mediaElements.classList.add('active'); 
+
+      setInterval(() => {
+        mediaElements[currentIndex].classList.remove('active'); 
+        currentIndex = (currentIndex + 1) % mediaElements.length; 
+        mediaElements[currentIndex].classList.add('active'); 
+      }, 4000); 
+    });
+  </script>
 </body>
 </html>
