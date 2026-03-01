@@ -138,26 +138,22 @@
       position: relative; min-height: 380px; overflow: hidden; background: #0f172a;
     }
 
-    /* ── CSS IMAGE SLIDER (Rolling Diapositives) ── */
-    /* Adjust animation duration depending on how many images you have */
-    .css-slider {
+    /* ── AUTO IMAGE SLIDER ── */
+    .auto-slider {
       position: absolute; inset: 0; width: 100%; height: 100%;
     }
     
-    .css-slider img {
+    .auto-slider img {
       position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
-      opacity: 0; animation: fadeSlide 12s infinite; 
+      opacity: 0; 
+      transform: scale(1.05); /* Starts slightly zoomed in */
+      transition: opacity 1.2s ease-in-out, transform 5s ease-out;
     }
 
-    /* 3 Images = 12s total (4s each). Adjust timings if you add more photos! */
-    .css-slider img:nth-child(1) { animation-delay: 0s; }
-    .css-slider img:nth-child(2) { animation-delay: 4s; }
-    .css-slider img:nth-child(3) { animation-delay: 8s; }
-
-    @keyframes fadeSlide {
-      0%, 25% { opacity: 1; transform: scale(1.02); } /* Slowly zooms while visible */
-      33%, 92% { opacity: 0; transform: scale(1.05); }
-      100% { opacity: 1; transform: scale(1); }
+    .auto-slider img.active {
+      opacity: 1;
+      transform: scale(1); /* Slowly zooms out while visible */
+      z-index: 1;
     }
 
     /* Card content */
@@ -271,7 +267,7 @@
     <div class="project-card-diy reveal">
       <div class="card-inner">
         <div class="card-visual">
-          <div class="css-slider">
+          <div class="auto-slider">
             <img src="assets\images\Personnal_projects\electric_guitar\guitar_1.jpg" alt="Guitar Build 1">
             <img src="assets\images\Personnal_projects\electric_guitar\guitar_2.jpg" alt="Guitar Build 2">
             <img src="assets\images\Personnal_projects\electric_guitar\guitar_3.jpg" alt="Guitar Build 3">
@@ -315,7 +311,7 @@
     <div class="project-card-diy reveal delay-2">
       <div class="card-inner">
         <div class="card-visual">
-          <div class="css-slider">
+          <div class="auto-slider">
             <img src="assets\images\Personnal_projects\studio\studio_0.jpeg" alt="Studio Build 1">
             <img src="assets\images\Personnal_projects\studio\studio_1.jpeg" alt="Studio Build 2">
             <img src="assets\images\Personnal_projects\studio\studio_2.jpeg" alt="Studio Build 3">
@@ -361,11 +357,11 @@
     <div class="project-card-diy reveal delay-1">
       <div class="card-inner reverse">
         <div class="card-visual">
-          <div class="css-slider">
-            <img src="assets\images\Personnal_projects\obstacle_detector\ultrasound_1.jpg" alt="Arduino Project 1">
-            <img src="assets\images\Personnal_projects\obstacle_detector\ultrasound_2.jpg" alt="Arduino Project 2">
-            <img src="assets\images\Personnal_projects\obstacle_detector\ultrasound_3.jpg" alt="Arduino Project 3">
-            <img src="assets\images\Personnal_projects\obstacle_detector\ultrasound_4.jpg" alt="Arduino Project 4">
+          <div class="auto-slider">
+            <img src="assets\images\Personnal_projects\obstacle_detector\obstacle_1.jpg" alt="Arduino Project 1">
+            <img src="assets\images\Personnal_projects\obstacle_detector\obstacle_2.jpg" alt="Arduino Project 2">
+            <img src="assets\images\Personnal_projects\obstacle_detector\obstacle_3.jpg" alt="Arduino Project 3">
+            <img src="assets\images\Personnal_projects\obstacle_detector\obstacle_4.jpg" alt="Arduino Project 4">
           </div>
         </div>
 
