@@ -886,6 +886,7 @@ section {
   width: 90px;
   height: auto;
   opacity: 0.95;
+  border-radius: 12px; /* <-- round corners */
   filter: drop-shadow(0 8px 20px rgba(0,0,0,0.25));
 }
 
@@ -1140,6 +1141,19 @@ section {
     rgba(15,23,42,0.05)
   );
 }
+
+/* Premium watermark icons in project headers */
+.header-bg-icon {
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  font-size: 3.5rem;   /* Makes the icon large */
+  color: white;
+  opacity: 0.15;       /* Gives it that subtle transparent "watermark" look */
+  pointer-events: none; /* Prevents the icon from interfering with clicking */
+  transform: rotate(-5deg); /* Optional: Gives it a slightly dynamic tilt */
+}
+
 /* ================= EXPERIENCE (IMPROVED) ================= */
 
 /* Le wrapper centre la zone, mais les cartes restent bien alignées */
