@@ -209,39 +209,39 @@
     </a>
   </div>
 
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('active');
-          observer.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12 });
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // Automatically runs all sliders on the page
-    document.querySelectorAll('.auto-slider').forEach(slider => {
-      const mediaElements = slider.querySelectorAll('img, video');
-      
-      // If there is only 1 image, just show it and don't run the interval
-      if (mediaElements.length <= 1) {
-          if (mediaElements.length === 1) {
-              mediaElements.classList.add('active'); // ADDED HERE
-          }
-          return; 
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('active');
+        observer.unobserve(e.target);
       }
-      
-      let currentIndex = 0;
-      mediaElements[currentIndex].classList.add('active'); // ADDED HERE
-
-      setInterval(() => {
-        mediaElements[currentIndex].classList.remove('active'); 
-        currentIndex = (currentIndex + 1) % mediaElements.length; 
-        mediaElements[currentIndex].classList.add('active'); 
-      }, 4000); 
     });
-  </script>
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+
+  // AUTO SLIDER FIXED
+  document.querySelectorAll('.auto-slider').forEach(slider => {
+    const mediaElements = slider.querySelectorAll('img, video');
+
+    if (mediaElements.length === 0) return;
+
+    let currentIndex = 0;
+
+    // Always activate first image
+    mediaElements[currentIndex].classList.add('active');
+
+    // If only one image → stop here
+    if (mediaElements.length === 1) return;
+
+    setInterval(() => {
+      mediaElements[currentIndex].classList.remove('active');
+      currentIndex = (currentIndex + 1) % mediaElements.length;
+      mediaElements[currentIndex].classList.add('active');
+    }, 3000);
+  });
+</script>
 </body>
 </html>
