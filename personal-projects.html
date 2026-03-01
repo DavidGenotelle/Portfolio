@@ -421,5 +421,23 @@
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
+
+  <script>
+    // Automatically runs all sliders on the page
+    document.querySelectorAll('.auto-slider').forEach(slider => {
+      const images = slider.querySelectorAll('img');
+      if (images.length <= 1) return; // Skips if there's only 1 photo
+      
+      let currentIndex = 0;
+      images.classList.add('active'); // Show the first photo immediately
+
+      // Change photo every 3 seconds (3000 milliseconds)
+      setInterval(() => {
+        images[currentIndex].classList.remove('active'); // Hide current
+        currentIndex = (currentIndex + 1) % images.length; // Move to next
+        images[currentIndex].classList.add('active'); // Show next
+      }, 3000); 
+    });
+  </script>
 </body>
 </html>
