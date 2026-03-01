@@ -224,13 +224,17 @@
     // Automatically runs all sliders on the page
     document.querySelectorAll('.auto-slider').forEach(slider => {
       const mediaElements = slider.querySelectorAll('img, video');
+      
+      // If there is only 1 image, just show it and don't run the interval
       if (mediaElements.length <= 1) {
-          if (mediaElements.length === 1) mediaElements.classList.add('active');
+          if (mediaElements.length === 1) {
+              mediaElements.classList.add('active'); // ADDED HERE
+          }
           return; 
       }
       
       let currentIndex = 0;
-      mediaElements.classList.add('active'); 
+      mediaElements[currentIndex].classList.add('active'); // ADDED HERE
 
       setInterval(() => {
         mediaElements[currentIndex].classList.remove('active'); 
