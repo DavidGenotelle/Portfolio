@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Main Landing Page -->
+  <url>
+    <loc>https://davidgenotelle.github.io/Portfolio/index.html</loc>
+    <lastmod>2026-05-04</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <!-- Project: AURIGA -->
+  <url>
+    <loc>https://davidgenotelle.github.io/Portfolio/AURIGA.html</loc>
+    <lastmod>2026-05-04</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <!-- Project: Greenhouse (Serre) -->
+  <url>
+    <loc>https://davidgenotelle.github.io/Portfolio/serre.html</loc>
+    <lastmod>2026-05-04</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <!-- Personal Projects -->
+  <url>
+    <loc>https://davidgenotelle.github.io/Portfolio/personal-projects.html</loc>
+    <lastmod>2026-05-04</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <!-- Experience Page -->
+  <url>
+    <loc>https://davidgenotelle.github.io/Portfolio/experience.html</loc>
+    <lastmod>2026-05-04</lastmod>
+    <priority>0.7</priority>
+  </url>
+</urlset>
